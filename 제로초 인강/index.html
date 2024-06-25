@@ -86,27 +86,37 @@
             display: inline-block;
         }
         #header {
-           text-align: left; 
+            position: relative;
+            text-align: left; 
         }
         #header-hamburger {
-            margin-top: 18px;
+            position: absolute;
+            top: 18px;
+            left: -10px;
             padding: 10px;
             display: inline-block;
             background: none;
             border: none;
             cursor: pointer;
         }
-        #header-hamburger:hover {
+        #header-hamburger:hover::before {
+            position: absolute;
+            content: '';
+            left: 1px;
+            top: 1px; 
+            width: 44px;
+            height: 44px;
             background-color: var(--color_option_bg);
             border-radius: 50%;
         }
+
         #header-hamburger > div {
             background-image: url(./sp_main.png);
+            width: 26px;
+            height: 26px;
             background-size: 442px 434px;
             background-position: -326px -161px;
             background-repeat: no-repeat;
-            width: 32px;
-            height: 32px;
         }
         #main {
             height: 2000px;
