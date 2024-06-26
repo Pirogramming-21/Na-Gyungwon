@@ -197,7 +197,7 @@
 
             <style>
                 #search > form {
-                    display: inline-block;
+                    display: inline-flex;
                     width: 708px;
                     height: 60px;
                     border: 1px solid #03c75a;
@@ -205,7 +205,9 @@
                     text-align: left;
                 }
                 #search-svg {
-                    display: inline-block;
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
                     width: 68px;
                     margin-right: 12px;
                     height: 100%;
@@ -225,18 +227,28 @@
                     border: none;
                     outline: none;
                 }
+                #search-keyboard, #search-recent, #search-button {
+                    background: transparent;
+                    border: none;
+                    cursor: pointer;
+                }
+
+
                 #search-right {
-                    display: inline-block;
+                    display: inline-flex;
+                    flex: 1;
+                    align-items: stretch;
+                    justify-content: flex-end;
                 }
                 #search-keyboard::before {
                     content: "";
                     display: block;
                     background-image: url(https://pm.pstatic.net/resources/asset/sp_main.712d35ae.png);
                     background-size: 422px 405px; /* 442px 434px */
-                    background-position: -290px -270px; /*-270px -234px */
+                    background-position: -270 -234px; /*-290px -270px */
                     background-repeat: no-repeat;
                     width: 24px;
-                    height: 14px; /* 16px */
+                    height: 16px; /* 14px */
                 }
                 #search-recent::before {
                     content: "";
