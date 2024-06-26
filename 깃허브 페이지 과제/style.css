@@ -2,6 +2,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-size: 15px;
+    font-family:Segoe UI, SegoeUI, Arial, sans-serif;
 }
 
 #wrap {
@@ -37,13 +38,15 @@ html, body {
 }
 
 #header-nav {
-    position: absolute;
+    background-color: #2D3136;
+    position: fixed;
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 10px 60px;
+    padding: 10px 15px 0 15px;
     box-sizing: border-box;
-    margin-top: -500px;
+    top: 0;
+    left: 0;
 }
 
 #left-nav, #right-nav {
@@ -82,12 +85,10 @@ html, body {
     border-radius: 7px;
 }
 #main-section {
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    width: 100%;
-    margin-bottom: -60px;
 }
 
 #intro {
@@ -103,12 +104,12 @@ html, body {
 
 #intro .bold {
     font-size: 3rem;
-    font-weight: 700;
+    font-weight: 550;
     margin-bottom: -5px;
 }
-#intro .text {
-    line-height: 1.5;
-    font-weight: 300;
+#intro .texts {
+    line-height: 1.75;
+    font-weight: 100;
 }
 #login {
     background-color: white;
