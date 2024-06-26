@@ -37,12 +37,13 @@ html, body {
 }
 
 #header-nav {
+    position: absolute;
     display: flex;
     justify-content: space-between;
     width: 100%;
     padding: 10px 60px;
     box-sizing: border-box;
-    margin-top: -130px;
+    margin-top: -500px;
 }
 
 #left-nav, #right-nav {
@@ -62,7 +63,7 @@ html, body {
     justify-content: center;
     height: 100%;
     width: 100%;
-    margin: 0 auto;
+    margin-bottom: -60px;
 }
 
 #intro {
@@ -70,7 +71,7 @@ html, body {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    max-height: 300px;
+    max-height: 200px;
     max-width: 350px;
     color: white;
     margin-right: -30px;
@@ -129,4 +130,19 @@ html, body {
 #login a {
     color: #437CD5;
     text-decoration: none;
+}
+#background-image-div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 0;
+    margin: 0;
+}
+#background-img {
+    max-width: 100%;
+    height: auto;
+    width: 500px;
 }
