@@ -67,13 +67,23 @@ html, body {
 #intro {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     max-height: 400px;
     max-width: 350px;
     color: white;
+    margin-right: -30px;
 }
 
+#intro .bold {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: -5px;
+}
+#intro .text {
+    line-height: 1.5;
+    font-weight: 300;
+}
 #login {
     background-color: white;
     height: 400px;
