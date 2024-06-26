@@ -56,7 +56,24 @@ html, body {
     padding-left: 20px;
     text-decoration: none;
 }
-
+#search-github {
+    border: none;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: #474B50;
+    color: rgb(189, 189, 189);
+}
+#search-github::placeholder {
+    color: rgb(189, 189, 189);
+}
+#menu-signup {
+    color: white;
+    padding: 5px 5px;
+    margin-left: 15px;
+    text-decoration: none;
+    border: 1px solid white;
+    border-radius: 7px;
+}
 #main-section {
     display: flex;
     align-items: center;
