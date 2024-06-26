@@ -60,7 +60,7 @@ html, body {
     border: none;
     padding: 5px;
     border-radius: 4px;
-    background-color: #474B50;
+    background-color: rgba(75, 75, 75, 0.6);
     color: rgb(189, 189, 189);
 }
 #search-github::placeholder {
