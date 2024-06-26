@@ -50,11 +50,18 @@ html, body {
     display: flex;
     align-items: center;
 }
-
+#pointer {
+    margin-left: 5px;
+    width: 16px;
+    height: 16px;
+    fill: white;
+}
 #menu {
     color: white;
     padding-left: 20px;
     text-decoration: none;
+    display: flex;
+    align-items: center;
 }
 #search-github {
     border: none;
