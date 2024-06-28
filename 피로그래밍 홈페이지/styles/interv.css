@@ -1,0 +1,128 @@
+#pirogramming-nth-nth {
+    position: relative;
+    background-color: black;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#pirogramming-nth-nth > span {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+#pirogramming-nth > span > a {
+    color: white;
+    text-decoration: none;
+}
+
+#pirogramming-nth > span > a:visited{
+    text-decoration: none;
+    color: white;
+
+}
+
+#interview-section {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding-bottom: 100px;
+}
+
+#interview-hamburger-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 20px;
+    height: 20px;
+}
+
+#interview-hamburger-icon > div {
+    background-color: rgba(236, 236, 236, 0.466);
+    transition: 0.3s;
+    height: 2px;
+    margin: 2px 0;
+}
+
+#interview-content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+}
+
+#interview {
+    position: relative;
+    background-color: var(--gray);
+    width: 100%;
+    height: 100%;
+    min-height: 150px;
+    border-radius: 5px;
+    padding-bottom: 0;
+}
+
+#selfie {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+#selfie > img {
+    border-radius: 70%;
+    width: 60px;
+    height: 60px;
+}
+
+#name {
+    position: absolute;
+    top: 25px;
+    left: 100px;
+}
+
+.major {
+    position: absolute;
+    left: 100px;
+    top: 55px;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: .8rem;
+}  
+
+#non-major {
+    background-color: #B64D2F;
+}
+
+#main-major {
+    background-color: #4386B2;
+}
+
+#double-major {
+    background-color: #58A47E;
+}
+
+#comment {
+    position: absolute;
+    top: 110px;
+    left: 20px;
+}
+
+@media screen and (max-width: 850px) {
+    #interview-content{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #interview-content{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
