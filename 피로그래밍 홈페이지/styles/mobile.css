@@ -58,7 +58,7 @@
     }
     
     .sidebar {
-        width: 300px;
+        width: 250px;
         height: calc(100vh - var(--header-height));
         position: fixed;
         background-color: var(--gray);
@@ -67,7 +67,31 @@
         transition: 0.3s;
         padding: 0;
         margin: 0;
+        z-index: 1;
     }
+    .sidebar > ul {
+        display: flex;
+        align-content: flex-end;
+        padding-right: 40px;
+        padding-top: 40px;
+        flex-wrap: wrap;
+        overflow: auto;
+        flex-direction: column;
+        gap: 2rem;
+        text-decoration: none;
+        color: white;
+        list-style-type: none;
+        text-align: right;
+    }
+
+    .sidebar > ul > li > a {
+        font: inherit;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.3rem;
+        color: white;
+    }
+
     #hamburger-icon > input[type="checkbox"]:checked ~ .sidebar {
         right: 0;
     }
