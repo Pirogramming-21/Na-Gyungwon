@@ -27,8 +27,29 @@ main{
     display: flex;
     font-size: 1.8rem;
     gap: 2rem;
+    text-decoration: none;
+    color: white;
+    font: inherit;
+    font-weight: 700;
+    list-style-type: none;
 }
 
 .main-header--container > ul > li:hover {
     color: var(--green);
+    transition: 0.3s;
+    translate: 0 -2px;
+}
+
+.main-header--container > ul > li > a {
+    text-decoration: none;
+    color: white;
+}
+
+.main-header--container > ul > li:first-child > a {
+    text-decoration: none;
+    color: var(--green);
+}
+
+.main-header--container > ul > li > a:hover {
+    text-decoration: none;
 }
