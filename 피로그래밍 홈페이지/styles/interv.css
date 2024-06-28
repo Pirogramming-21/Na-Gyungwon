@@ -7,6 +7,39 @@
     align-items: center;
     width: 100%;
 }
+#pirogramming-nth {
+    position: relative;
+    background-color: black;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+#prev {
+    position:absolute;
+    left: 0;
+}
+#current {
+    font-size: 1.3rem;
+}
+#next {
+    position:absolute;
+    right: 0;
+}
+#pirogramming-nth > span > a {
+    color: white;
+    text-decoration: none;
+}
+#pirogramming-nth > span > a:visited{
+    text-decoration: none;
+    color: white;
+}
+
+#pirogramming-nth > span {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
 
 #pirogramming-nth-nth > span {
     margin-bottom: 10px;
@@ -138,6 +171,11 @@
     scale: 1.1;
 }
 
+
+.main-header--container > ul > li:nth-child(4) > a {
+    text-decoration: none;
+    color: var(--green);
+}
 
 @media screen and (max-width: 850px) {
     #interview-content{
