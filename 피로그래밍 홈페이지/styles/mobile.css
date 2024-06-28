@@ -1,29 +1,49 @@
 #hamburger-icon {
-    width: 30px;
-    height: 25px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 30px;
+    height: 30px;
 }
 
-#hamburger-icon > div {
-    height: 3px;
-    background-color: white;
-    transition: 0.3s;
-}
-
-#hamburger-icon > input[type="checkbox"]:checked ~ div:nth-of-type(1) {
-    transform: rotate(48deg);
-    transform-origin: 0 0;
-}
-
-#hamburger-icon > input[type="checkbox"]:checked ~ div:nth-of-type(2) {
+#hamburger-icon > input[type="checkbox"] {
     display: none;
 }
 
+#hamburger-icon > div {
+    background-color: white;
+    transition: 0.3s;
+    height: 3px;
+    margin: 3px 0;
+}
+
+#hamburger-icon > div:nth-of-type(1) {
+    width: 50%;
+}
+
+#hamburger-icon > div:nth-of-type(2) {
+    width: 100%;
+}
+
+#hamburger-icon > div:nth-of-type(3) {
+    width: 75%;
+}
+
+
+#hamburger-icon > input[type="checkbox"]:checked ~ div:nth-of-type(1) {
+    transform: rotate(45deg);
+    transform-origin: bottom;
+    translate: -2px 4px;
+}
+
+#hamburger-icon > input[type="checkbox"]:checked ~ div:nth-of-type(2) {
+    transform: rotate(-45deg) translateY(-2px);
+    transform-origin: 50% 50%;
+}
+
 #hamburger-icon > input[type="checkbox"]:checked ~ div:nth-of-type(3) {
-    transform: rotate(-48deg);
-    transform-origin: 0 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
 }
 
 @media screen and (min-width: 768px) {
@@ -41,11 +61,10 @@
         width: 300px;
         height: calc(100vh - var(--header-height));
         position: fixed;
-        background-color: aliceblue;
+        background-color: var(--gray);
         top: var(--header-height);
         right: -300px;
         transition: 0.3s;
-
     }
     #hamburger-icon > input[type="checkbox"]:checked ~ .sidebar {
         right: 0;
