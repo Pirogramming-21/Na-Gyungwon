@@ -10,3 +10,11 @@ body {
     font-weight: normal;
     font-style: normal;
 }
+footer {
+    background-color: var(--gray);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50px;
+}
