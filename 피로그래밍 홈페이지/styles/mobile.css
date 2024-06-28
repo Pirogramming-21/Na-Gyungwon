@@ -62,9 +62,11 @@
         height: calc(100vh - var(--header-height));
         position: fixed;
         background-color: var(--gray);
-        top: var(--header-height);
+        top: 11vh;
         right: -300px;
         transition: 0.3s;
+        padding: 0;
+        margin: 0;
     }
     #hamburger-icon > input[type="checkbox"]:checked ~ .sidebar {
         right: 0;
