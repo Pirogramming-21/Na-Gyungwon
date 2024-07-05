@@ -115,11 +115,11 @@
     cursor: pointer;
 }
 
-#check_btn {
+.btns {
     display: none;
 }
 
-#check_btn + label {
+.btns + label {
     content: '';
     display: inline-block;
     width: 15px;
@@ -129,7 +129,7 @@
     position: relative;
     cursor: pointer;
 }
-#check_btn:checked + label::after {
+.btns:checked + label::after {
     content: "✓";
     font-size: 1rem;
     font-weight: 900;

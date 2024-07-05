@@ -1,6 +1,7 @@
 const StartBtn = document.getElementById('btn__start');
 const StopBtn = document.getElementById('btn__stop');
 const ResetBtn = document.getElementById('btn__reset');
+const DeleteBtn = document.getElementById('btn__delete');
 const display = document.getElementById('stopwatch__display');
 const recordList = document.getElementById('record__list');
 
@@ -32,11 +33,15 @@ function startTimer() {
 }
 
 function addRecords(){
+    let recordId = recordList.children.length + 1;
+    let checkboxId = `check_btn_${recordId}`; 
+
     const ListItem = document.createElement('li');
     const currentTime = display.innerHTML; // display의 내용을 가져옴
+    
     ListItem.innerHTML = `
-        <input type="checkbox" id="check_btn"/>
-        <label for="check_btn"></label>
+        <input type="checkbox" id="${checkboxId}" class="btns"/>
+        <label for="${checkboxId}"></label>
         <span>${currentTime}</span>
     `;
     recordList.appendChild(ListItem);
@@ -61,3 +66,12 @@ ResetBtn.addEventListener('click', () => {
     display.innerHTML = "00:00";
 });
 
+DeleteBtn.addEventListener('click', () => {
+    const items = recordList.querySelectorAll('li');
+    items.forEach(item => {
+        const checkBtn = item.querySelector('input[type="checkbox"]');
+        if (checkBtn.checked) {
+            item.remove();
+        }
+    });
+});
