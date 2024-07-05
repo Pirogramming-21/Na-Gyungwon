@@ -62,7 +62,7 @@ while cur_num < 32:
 
 # 7단계: 게임이 끝났을 때, 누가 이겼는지 출력
 # "playerA win!" / "playerB win!"
-
+print(f"{players[cur_idx%2]} win!")
 # 8단계: 6단계까지 중복되는 코드를 찾아 함수로 만들기, 함수 이름 "brGame"
 
 # 9단계: computer과 대결하는 배스킨라빈스31게임 제작
