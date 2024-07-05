@@ -179,3 +179,8 @@
     margin: 0;
     padding: 0;
 }
+
+#btn__delete:hover {
+    color: #E86B51;
+    transition: .3s;
+}
