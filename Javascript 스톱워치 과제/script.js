@@ -2,6 +2,7 @@ const StartBtn = document.getElementById('btn__start');
 const StopBtn = document.getElementById('btn__stop');
 const ResetBtn = document.getElementById('btn__reset');
 const display = document.getElementById('stopwatch__display');
+const recordList = document.getElementById('record__list');
 
 
 let timerInterval;
@@ -30,12 +31,24 @@ function startTimer() {
     }
 }
 
+function addRecords(){
+    const ListItem = document.createElement('li');
+    const currentTime = display.innerHTML; // display의 내용을 가져옴
+    ListItem.innerHTML = `
+        <input type="checkbox" id="check_btn"/>
+        <label for="check_btn"></label>
+        <span>${currentTime}</span>
+    `;
+    recordList.appendChild(ListItem);
+}
+
 StartBtn.addEventListener('click', () => {
     if (timerInterval) return; // 이미 타이머가 실행 중인 경우 실행하지 않음
     timerInterval = setInterval(startTimer, 10);
 });
 
 StopBtn.addEventListener('click', () => {
+    addRecords();
     clearInterval(timerInterval);
     timerInterval = null;
 });
