@@ -5,25 +5,30 @@ num = 0
 # 2단계: input()으로 1~3 정수 입력
 # num_cnt = input("부를 숫자의 개수를 입력하세요(1, 2, 3만 입력 가능) :")
 
+
 # 3단계:
 # 2단계에서 정수가 아닐 경우 "정수를 입력하세요" 출력
 # 1,2,3을 입력하지 않는 경우, "1, 2, 3 중 하나를 입력하세요" 출력
 # 올바른 값이 입력될 때가지 입력 요구
-while True:
-    num_cnt = input("부를 숫자의 개수를 입력하세요(1, 2, 3만 입력 가능) :")
+def input_num():
+    while True:
+        num_cnt = input("부를 숫자의 개수를 입력하세요(1, 2, 3만 입력 가능) :")
 
-    if not num_cnt.isdigit():
-        print("정수를 입력하세요.")
-        continue
+        if not num_cnt.isdigit():
+            print("정수를 입력하세요.")
+            continue
 
-    num_cnt = int(num_cnt)
+        num_cnt = int(num_cnt)
 
-    if num_cnt not in [1, 2, 3]:
-        print("1, 2, 3 중 하나를 입력하세요")
-        continue
+        if num_cnt not in [1, 2, 3]:
+            print("1, 2, 3 중 하나를 입력하세요")
+            continue
 
-    break
+        break
+    return num_cnt
 
+
+num_cnt = input_num()
 # 4단계: num을 이용하여 2단계에서 입력한 수만큼 숫자를 출력하는 코드 작성
 cur_num = 1
 for i in range(num_cnt):
@@ -36,7 +41,11 @@ for i in range(num_cnt):
 # 1,2,3을 입력하지 않는 경우 , "1, 2, 3 중 하나를 입력하세요" 출력
 # 올바른 값이 입력될 때가지 입력 요구
 # num을 이용하여 입력한 수만큼 숫자를 출력하는 코드 작성
+num_cnt = input_num()
 
+for i in range(num_cnt):
+    print(f"playerB: {cur_num}")
+    cur_num += 1
 # 6단계: 게임이 끝날 때까지 playerA와 playerB에게 번갈아가며 부를 숫자의 개수를 입력받는 코드 작성
 
 # 7단계: 게임이 끝났을 때, 누가 이겼는지 출력
