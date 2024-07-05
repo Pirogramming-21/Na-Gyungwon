@@ -25,6 +25,10 @@ while True:
     break
 
 # 4단계: num을 이용하여 2단계에서 입력한 수만큼 숫자를 출력하는 코드 작성
+cur_num = 1
+for i in range(num_cnt):
+    print(f"playerA: {cur_num}")
+    cur_num += 1
 
 # 5단계:
 # 1~3 사이의 정수를 입력받는 코드 작성 "부를 숫자의 개수를 입력하세요(1, 2, 3만 입력 가능): "
