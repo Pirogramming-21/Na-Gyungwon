@@ -55,13 +55,13 @@
 }
 #stopwatch__display{
     display: flex;
-    flex-direction: column;
     border-radius: 10px;
     height: 30%;
     width: 100%;
     background-color: var(--background-color);
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 10px;
     font-size: 2rem;
 }
 
