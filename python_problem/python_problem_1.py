@@ -71,27 +71,25 @@ def input_num():
 
 
 # 8단계: 6단계까지 중복되는 코드를 찾아 함수로 만들기, 함수 이름 "brGame"
+def brGame(num, players, cur_idx=0, cur_num=1):
+    for i in range(num):
+        if cur_num >= 32:
+            break
+        print(f"{players[cur_idx%2]}: {cur_num}")
+        cur_num += 1
+
+    cur_idx += 1
+    return [cur_idx, cur_num]
 
 
-def brGame(players=["playerA", "playerB"]):
-    cur_idx = 0
-    cur_num = 1
+players = ["playerA", "playerB"]
+cur_idx = 0
+cur_num = 1
+while cur_num < 32:
+    num = input_num()
+    cur_idx, cur_num = brGame(num, players, cur_idx, cur_num)
 
-    while cur_num < 32:
-        num = input_num()
-        for i in range(num):
-            print(f"{players[cur_idx%2]}: {cur_num}")
-            cur_num += 1
-            if cur_num >= 32:
-                break
-        cur_idx += 1
-
-    print(f"{players[cur_idx%2]} win!")
-    # 승리한 player 이름 Return
-    # return players[cur_idx%2]
-
-
-brGame()
+print(f"{players[cur_idx%2]} win!")
 
 # 9단계: computer과 대결하는 배스킨라빈스31게임 제작
 # playerA -> computer, playerB -> player
