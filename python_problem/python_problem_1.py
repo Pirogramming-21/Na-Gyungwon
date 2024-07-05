@@ -46,7 +46,19 @@ num_cnt = input_num()
 for i in range(num_cnt):
     print(f"playerB: {cur_num}")
     cur_num += 1
+
 # 6단계: 게임이 끝날 때까지 playerA와 playerB에게 번갈아가며 부를 숫자의 개수를 입력받는 코드 작성
+players = ["playerA", "playerB"]
+cur_idx = 0
+
+while cur_num < 32:
+    num_cnt = input_num()
+    for i in range(num_cnt):
+        print(f"{players[cur_idx%2]}: {cur_num}")
+        cur_num += 1
+        if cur_num >= 32:
+            break
+    cur_idx += 1
 
 # 7단계: 게임이 끝났을 때, 누가 이겼는지 출력
 # "playerA win!" / "playerB win!"
