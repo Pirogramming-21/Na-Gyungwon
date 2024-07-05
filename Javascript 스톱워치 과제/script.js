@@ -75,3 +75,19 @@ DeleteBtn.addEventListener('click', () => {
         }
     });
 });
+
+const checkBtnAll = document.getElementById('check_btn');
+checkBtnAll.addEventListener('click', () => {
+    const items = recordList.querySelectorAll('li');
+    if(checkBtnAll.checked){
+        items.forEach(item => {
+            const checkBtn = item.querySelector('input[type="checkbox"]');
+            checkBtn.checked = true;
+        });
+    } else {
+        items.forEach(item => {
+            const checkBtn = item.querySelector('input[type="checkbox"]');
+            checkBtn.checked = false;
+        });
+    }
+})
