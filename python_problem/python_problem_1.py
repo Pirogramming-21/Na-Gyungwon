@@ -12,7 +12,7 @@ num = 0
 # 올바른 값이 입력될 때가지 입력 요구
 def input_num():
     while True:
-        num = input("부를 숫자의 개수를 입력하세요(1, 2, 3만 입력 가능) :")
+        num = input("부를 숫자의 개수를 입력하세요(1, 2, 3만 입력 가능) : ")
 
         if not num.isdigit():
             print("정수를 입력하세요.")
@@ -82,16 +82,30 @@ def brGame(num, players, cur_idx=0, cur_num=1):
     return [cur_idx, cur_num]
 
 
-players = ["playerA", "playerB"]
-cur_idx = 0
-cur_num = 1
-while cur_num < 32:
-    num = input_num()
-    cur_idx, cur_num = brGame(num, players, cur_idx, cur_num)
+# players = ["playerA", "playerB"]
+# cur_idx = 0
+# cur_num = 1
+# while cur_num < 32:
+#     num = input_num()
+#     cur_idx, cur_num = brGame(num, players, cur_idx, cur_num)
 
-print(f"{players[cur_idx%2]} win!")
+# print(f"{players[cur_idx%2]} win!")
 
 # 9단계: computer과 대결하는 배스킨라빈스31게임 제작
 # playerA -> computer, playerB -> player
 # computer는 임의로 1~3의 수
 # random, randint(a, b) a <= n <= b인 n
+import random as rd
+
+players = ["computer", "player"]
+cur_idx = 0
+cur_num = 1
+
+while cur_num < 32:
+    if cur_idx % 2 == 0:
+        num = rd.randint(1, 3)
+    else:
+        num = input_num()
+    cur_idx, cur_num = brGame(num, players, cur_idx, cur_num)
+
+print(f"{players[cur_idx%2]} win!")
