@@ -5,10 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"/>
 </head>
 <body>
-    <script src="script.js"></script>    
+    <script src="script.js"></script>
 
+    <section class="stopwatch">
+        <div id="title">
+            <i class="ri-timer-fill"></i>
+            <p>피로그래밍 스톱워치</p>
+        </div>
+        <div id="stopwatch__frame">
+            <div id="stopwatch_content">
+                <div id="stopwatch__display">30</div>
+                <div id="stopwatch__buttons">
+                    <button id="btn__start">start</button>
+                    <button id="btn__stop">stop</button>
+                    <button id="btn__reset">reset</button>
+                </div>
+            </div>
+        </div>
+        <div id="record__container">
+            <div id="record__title">
+                <input type="checkbox" id="check_btn"/>
+                <label for="check_btn"></label>
+                구간 기록
+                <i class="ri-delete-bin-7-fill"></i>            </div>
+        </div>
+        <ul id="record__list">
+            <li>
+                <input type="checkbox" id="check_btn"/>
+                <label for="check_btn"></label>
+                <span>01:28</span>
+            </li>
+            <li>
+                <input type="checkbox" id="check_btn"/>
+                <label for="check_btn"></label>
+                <span>01:28</span>
+            </li>
+        </ul>
+    </section>
 </body>
 </html>
