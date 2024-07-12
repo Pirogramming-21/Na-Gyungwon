@@ -21,7 +21,7 @@
             <p id="poster">
                 <img src="{% if movie.poster %}{{ movie.poster.url }}{% else %}{% static 'media/default.jpg' %}{% endif %}" alt="{{ movie.title }} 포스터">
             </p>
-            <a href=""><p>{{ movie.title }}</p></a>
+            <a href="{% url 'myMovieRiviews:review_detail' id=movie.id%}"><p>{{ movie.title }}</p></a>
             <p>개봉년도: {{ movie.release_year }}</p>
             <p>장르: {{ movie.genre }}</p>
             <p>별점: {{ movie.rating }}</p>

@@ -11,4 +11,32 @@
         </a>
         <div><a href="{% url 'myMovieRiviews:review_create' %}">add a new review</a></div>
     </header>
+
+    <div class="movie__detail">
+        <div id="movie__head">
+            <div id="movie__title">{{movie.title}}</div>
+            <div id="movie__head__left">
+                <a href="{% url 'myMovieRiviews:review_edit' movie.id %}">edit</a>
+                <a href="{% url 'myMovieRiviews:review_delete' movie.id %}">delete</a>
+            </div>
+        </div>
+        <div id="detail__container">
+            <div id="movie__description">
+                <div id="movie__poster">
+                    <img src="{% if movie.poster %}{{ movie.poster.url }}{% else %}{% static 'media/default.jpg' %}{% endif %}" alt="{{ movie.title }} 포스터">
+                </div>
+                <div id="detail__content">
+                    <p><span>개봉년도 </span>{{ movie.release_year }}년</p>
+                    <p><span>감독 </span>{{ movie.director }}</p>
+                    <p><span>배우 </span>{{ movie.actor }}</p>
+                    <p><span>장르 </span>{{ movie.genre }}</p>
+                    <p><span>별점 </span>{{ movie.rating }}</p>
+                    <p><span>러닝타임 </span>{{ movie.running_time }}분</p>
+                </div>
+            </div>
+            <div id="review">
+                {{ movie.review }}
+            </div>
+        </div>
+    </div>
 </body>

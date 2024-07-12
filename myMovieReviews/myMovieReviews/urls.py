@@ -13,6 +13,8 @@ urlpatterns = [
     path("", review_list, name="index"),
     path("movies/", review_list, name="review_list"),
     path("movies/create/", review_create, name="review_create"),
-    path("movies/details/", review_detail, name="review_detail"),
+    path("movies/<int:id>/", review_detail, name="review_detail"),
+    path("movies/<int:id>/edit/", review_edit, name="review_edit"),
+    path("movies/<int:id>/delete/", review_delete, name="review_delete"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # 출처: https://edder773.tistory.com/102 [개발하는 차리의 공부 일기:티스토리]
