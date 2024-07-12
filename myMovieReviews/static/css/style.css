@@ -6,9 +6,14 @@
     font-weight: 700;
     font-style: normal;
 }
-
+p {
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: #E7F0DC;
+}
 header {
-    background-color: white;
     display: flex;
     justify-content: space-between;
     margin: 20px 30px;
@@ -23,7 +28,7 @@ header a > div {
 }
 
 header a > div > span, #review__title > span{
-    color: red;
+    color: #597445;
 }
 
 a {
@@ -34,6 +39,9 @@ a {
 
 }
 
+a p {
+    color: white;
+}
 body {
     font-family: 'KoPubWorldDotum';
     display: flex;
@@ -44,11 +52,15 @@ body {
     font-family: 'MoveSans-Bold';
     text-align: center;
     font-size: 1.1rem;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid white;
+    color: white;
 
 }
+
+#review__title > span {
+    color: white;
+}
 .reviews__container {
-    background-color: white;
     width: 70%;
     height: 100vh;
     margin: 0 auto;
@@ -62,14 +74,26 @@ body {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     align-items: flex-start;
     margin: 0;
     padding: 0 10px;
-    background-color: #D9D9D9;
+    background-color: #729762;
+    border-radius: 15px;
+    color: white;
     width: 200px;
-    height: 300px;
+    height: 350px;
     position: relative;
+}
+
+#movie__content:hover {
+    transform: translateY(-10px);
+    transition: .5s;
+
+}
+#movie__head__left a:hover {
+    transform: scale(1.2);
+    transition: .5s;
 }
 
 #movie__content > p {
@@ -90,6 +114,8 @@ body {
     height: 150px;
     width: 100px;
     align-self: center;
+    border-radius: 10px;
+    padding-top: 10px;
 }
 
 
@@ -99,34 +125,20 @@ body {
     display: block;
     width: 100%;
     height: 100%;
+    border-radius: 10px;
 }
 
 
-
 .creating__container {
-    background-color: #F2F2F2;
+    background-color: #597445;
     width: 70%;
     height: 100vh;
     margin: 0 auto;
     padding: 20px;
     position: relative;
+    color: white;
 }
 
-.reviews__container form {
-    font-family: "KoPubWorldDotum";
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: center;
-    position: relative;
-}
-
-.reviews__container form > div{
-    display: flex;
-    justify-content: flex-start;
-    gap: 10px
-}
 
 #submit {
     background-color: white;
@@ -153,4 +165,83 @@ textarea {
     overflow: auto;
     white-space: pre-wrap;
     word-wrap: break-word;
+}
+
+form {
+    font-family: 'KoPubWorldDotum';
+    color: white;
+    padding-top: 30px;
+}
+.review__form {
+    font-family: 'KoPubWorldDotum';
+    margin-bottom: 15px;
+    height: auto;
+}
+
+.movie__detail {
+    font-family: 'KoPubWorldDotum';
+    padding: 20px;
+}
+
+#movie__head{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 0 15px 0 0;
+}
+
+#movie__title {
+    font-family: 'MoveSans-Bold';
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #729762;
+    padding-bottom: 10px;
+}
+
+#movie__head__left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+}
+#detail__container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#movie__description {
+    background-color: #729762;
+    display: grid;
+    grid-template-columns: 3fr 10fr;
+    grid-template-rows: auto;
+    gap: 10px;
+    padding: 10px;
+}
+
+#movie__poster > img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+#detail__content {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    justify-content: space-between;
+}
+#detail__content p {
+    color: white;
+}
+#detail__content p > span {
+    color: #E7F0DC;
+}
+#review {
+    font-family: 'KoPubWorldDotum';
+    background-color: #729762;
+    padding: 10px;
+    color: white;
 }
