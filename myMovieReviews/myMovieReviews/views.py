@@ -6,14 +6,16 @@ from .models import Movie
 
 
 # Create your views here.
-def movie_list(request):
+def review_list(request):
     movies = Movie.objects.all()
+    print("Movies:", movies)
     return render(request, "review_list.html", {"movies": movies})
 
 
 def review_create(request):
     if request.method == "POST":
         # POSTER
+        poster = request.FILES.get("poster")
         title = request.POST.get("title")
         release_year = request.POST.get("release_year")
         genre = request.POST.get("genre")
@@ -23,6 +25,7 @@ def review_create(request):
         director = request.POST.get("director")
         actor = request.POST.get("actor")
         movie = Movie(
+            poster=poster,
             title=title,
             release_year=release_year,
             genre=genre,
@@ -33,8 +36,12 @@ def review_create(request):
             actor=actor,
         )
         movie.save()
-        return redirect("myMovieRiviews:movie_list")
+        return redirect("myMovieRiviews:review_list")
     return render(request, "review_create.html")
+
+
+def review_detail(request):
+    print()
 
 
 # class Movie(models.Model):

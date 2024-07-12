@@ -3,12 +3,19 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body> 
+    <header>
+        <a href="{% url 'myMovieRiviews:review_list' %}">
+            <div>my <span>Movie</span> reviews</div>
+        </a>
+        <div><a href="{% url 'myMovieRiviews:review_create' %}">add a new review</a></div>
+    </header>
     <div class="creating__container">
         <div id = "review__title"><span>Movie</span> reivew🍿</div>   
 
-        <form action="{% url 'myMovieRiviews:review_create' %}" method="post">
+        <form action="{% url 'myMovieRiviews:review_create' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
              <!--이미지-->
+            <div>포스터: <input type="file" name="poster" /><br/></div>
             <div>제목: <input name="title" placeholder="제목" /><br/></div>
             <div>개봉년도: <input name="release_year" placeholder="개봉년도" /><br/></div>
             <!--장르 선택박스-->

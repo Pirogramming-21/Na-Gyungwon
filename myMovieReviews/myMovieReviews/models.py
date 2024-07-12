@@ -3,7 +3,7 @@ from django.db import models
 
 # Create your models here.
 class Movie(models.Model):
-    poster = models.URLField(max_length=300, blank=True)
+    poster = models.ImageField(upload_to="", blank=True, default="default.jpg")
     title = models.CharField(max_length=300, default="")
     release_year = models.IntegerField(default=0)
     genre = models.CharField(max_length=300, default="")

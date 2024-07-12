@@ -18,11 +18,11 @@ header {
     border-bottom: 1px solid black;
 }
 
-header div {
+header a > div {
     color: black;
 }
 
-header div > span, #review__title > span{
+header a > div > span, #review__title > span{
     color: red;
 }
 
@@ -55,6 +55,7 @@ body {
     padding: 20px;
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 #movie__content {
@@ -96,6 +97,8 @@ body {
     object-fit: cover;
     margin: 0 auto;
     display: block;
+    width: 100%;
+    height: 100%;
 }
 
 

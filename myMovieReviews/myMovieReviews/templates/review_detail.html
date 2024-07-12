@@ -1,3 +1,14 @@
-{% load static %}
-
-<h1>리뷰_디테일</h1>
+<!-- review_detail -->
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/details.css' %}">
+</head>
+<body>
+    <header>
+        <a href="{% url 'myMovieRiviews:review_list' %}">
+            <div>my <span>Movie</span> reviews</div>
+        </a>
+        <div><a href="{% url 'myMovieRiviews:review_create' %}">add a new review</a></div>
+    </header>
+</body>
