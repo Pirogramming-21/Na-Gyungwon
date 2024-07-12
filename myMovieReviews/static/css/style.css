@@ -88,9 +88,7 @@ body {
 #poster {
     height: 150px;
     width: 100px;
-    position: relative;
-    left: 25%; 
-    /* 근데 왜 50이 아니고 25일까 사진 넣어서 확인해보기*/
+    align-self: center;
 }
 
 
