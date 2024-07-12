@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영화 리뷰 사이트</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+<body>
+    <header>
+        <div>my <span>Movie</span> reviews</div>
+        <div><a href="{% url 'myMovieRiviews:review_create' %}">add a new review</a></div>
+    </header>
+    <div class="reviews__container">
+        {% for movie in movies %}
+        <div id="movie__content">
+            <p id="poster"><img src="{{movie.poster}}" alt="{{movie.title}} 포스터"></p>
+            <a href=""><p>{{ movie.title }}</p></a>
+            <p>개봉년도: {{ movie.release_year }}</p>
+            <p>장르: {{ movie.genre }}</p>
+            <p>별점: {{ movie.rating }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

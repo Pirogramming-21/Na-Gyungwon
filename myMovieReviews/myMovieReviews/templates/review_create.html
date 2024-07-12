@@ -1,0 +1,41 @@
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body> 
+    <div class="creating__container">
+        <div id = "review__title"><span>Movie</span> reivew🍿</div>   
+
+        <form action="{% url 'myMovieRiviews:review_create' %}" method="post">
+            {% csrf_token %}
+             <!--이미지-->
+            <div>제목: <input name="title" placeholder="제목" /><br/></div>
+            <div>개봉년도: <input name="release_year" placeholder="개봉년도" /><br/></div>
+            <!--장르 선택박스-->
+            <div>장르:
+                <select name="genre" plaveholder="장르">
+                    <option value="action">액션</option>
+                    <option value="animation">애니메이션</option>
+                    <option value="comedy">코미디</option>
+                    <option value="documentary">다큐멘터리</option>
+                    <option value="drama">드라마</option>
+                    <option value="fantasy">판타지</option>
+                    <option value="horror">호러</option>
+                    <option value="musical">뮤지컬</option>
+                    <option value="romance">로맨스</option>
+                    <option value="sf">SF</option>
+                    <option value="thriller">스릴러</option>
+                    <option value="historical">사극</option>
+                </select><br/>
+            </div>
+            <div>별점: <input name="rating" placeholder="별점" /><br/></div>
+            <div>러닝타임: <input name="running_time" placeholder="러닝타임"/><br/></div>
+            <div id = "review__content">리뷰: <textarea name="review" placeholder="리뷰" id="review-input"></textarea><br/>            </div>
+            <div>감독: <input name="director" placeholder="감독" /><br/></div>
+            <div>배우: <input name="actor" placeholder="배우" /><br/></div>
+            <div>
+                <input type="submit" value="save" id = "submit">
+            </div>
+        </form>
+    </div>
+</body>

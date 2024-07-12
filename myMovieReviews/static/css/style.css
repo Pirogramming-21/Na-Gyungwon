@@ -1,0 +1,155 @@
+@import "//cdn.jsdelivr.net/npm/font-kopub@1.0/kopubdotum.min.css";
+
+@font-face {
+    font-family: 'MoveSans-Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405-2@1.0/MoveSans-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+header {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 30px;
+    padding: 20px 0;
+    align-items: center;
+    font-family: 'MoveSans-Bold';
+    border-bottom: 1px solid black;
+}
+
+header div {
+    color: black;
+}
+
+header div > span, #review__title > span{
+    color: red;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: 100;
+    font-size: .5rem;
+
+}
+
+body {
+    font-family: 'KoPubWorldDotum';
+    display: flex;
+    flex-direction:column;
+}
+#review__title {
+    padding: 10px 0 30px 0;
+    font-family: 'MoveSans-Bold';
+    text-align: center;
+    font-size: 1.1rem;
+    border-bottom: 1px solid black;
+
+}
+.reviews__container {
+    background-color: white;
+    width: 70%;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+#movie__content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0 10px;
+    background-color: #F2F2F2;
+    width: 200px;
+    height: 300px;
+    position: relative;
+}
+
+#movie__content > p {
+    font-family: 'KoPubWorldDotum';
+    font-size: .9rem;
+    padding: 0;
+    margin: 5px;
+}
+#movie__content > a > p {
+    font-family: 'KoPubWorldDotum';
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 0;
+    margin: 5px;
+}
+
+#poster {
+    height: 150px;
+    width: 100px;
+    position: relative;
+    left: 25%; 
+    /* 근데 왜 50이 아니고 25일까 사진 넣어서 확인해보기*/
+}
+
+
+#poster > img {
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
+}
+
+
+
+.creating__container {
+    background-color: #F2F2F2;
+    width: 70%;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
+
+.reviews__container form {
+    font-family: "KoPubWorldDotum";
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    position: relative;
+}
+
+.reviews__container form > div{
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px
+}
+
+#submit {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    position: absolute;
+    right: 10px;
+}
+#review__content {
+    display: flex;
+    flex-direction:column;
+    width: 100%;
+}
+
+textarea {
+    border: none;
+    resize: none;
+    width: 100%;
+    height: 100px;
+}
+#review__input {
+    padding: 10px;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
