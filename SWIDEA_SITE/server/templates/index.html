@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이디어 관리</title>
+    <link rel="stylesheet" href="{%static 'posts/css/style.css'%}">
+    {%block head%}
+    {% endblock %}
+</head>
+<body>
+    <nav>
+        <a href="{% url 'posts:index' %}"><span>My <span id="nav_bold">SW Idea</span> Manage</span></a>
+        <a href="{% url 'posts:create' %}"><span>아이디어 등록</span></a>
+        <a href="{% url 'posts:list' %}"><span>아이디어 관리</span></a>
+        <a href="{% url 'devtools:tool_create' %}"><span>개발툴 등록</span></a>
+        <a href="{% url 'devtools:tool_list' %}"><span>개발툴 관리</span></a>
+
+    </nav>
+    <main>
+        {%block content%}
+          
+        
+        {%endblock%}
+      </main>
+      <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+          crossorigin="anonymous"
+        ></script>
+    
+</body>
+</html>

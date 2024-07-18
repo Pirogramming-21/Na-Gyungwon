@@ -1,0 +1,156 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10px 0 10px;
+
+}
+
+#nav_bold {
+    color: blue;
+}
+#nav__order {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    background-color: gray;
+    border-radius: 10px;
+}
+#nav__order > p > a{
+    padding: 10px;
+    color: white;
+
+}
+.content-wrapper {
+    display: grid;
+    background-color: gray;
+    color: white;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    position: relative;
+    gap: 20px;
+    margin: 10px 50px;
+    padding: 100px 50px;
+    width: 100%;
+}
+
+#content__title {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 25px 0;
+}
+
+
+.item {
+    background-color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+    padding: 0 5px;
+    justify-content: center;
+
+}
+
+.item > img {
+    padding-bottom: 5px;
+    width: 80%;
+    margin: auto;
+    display: block;
+}
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.info p {
+    color: black;
+}
+
+#interests{
+    display: flex;
+    padding-bottom: 10px;
+    gap: 5px;
+}
+#form__container {
+    background-color: gray;
+    margin: 50px 0;
+
+}
+form {
+    padding: 10px;
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+}
+
+#form__title {
+    padding: 30px;
+    color: white;
+    width: 100%;
+    text-align: center;
+    font-size: 1.3rem;
+}
+#tool-wrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: gray;
+    margin-top: 50px;
+}
+#tool__title {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0 0 0;
+}
+#tool__contrainer {
+    display: flex;
+    color: wheat;
+    justify-content: flex-start;
+    gap: 20px;
+    margin-top: 30px;
+    padding: 0 100px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+#tool__contrainer a > p {
+    color: black;
+}
+
+#kind {
+    color: white;
+}
+#tool__content{
+    color: black;
+}
+
+.mark-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+  }
+  
+  .mark-btn.marked {
+    color: gold; /* 또는 원하는 색상으로 변경 */
+  }
+
+  .interest-form {
+    background-color: transparent;
+  }

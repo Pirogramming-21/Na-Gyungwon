@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+
+{% load static %}
+<link rel="stylesheet" href="{%static 'posts/css/style.css'%}">
+{%block head%}
+  <title>개발도구 등록</title>
+{% endblock %}
+
+{%block content%}
+<div id="form__container">
+  <div id="form__title">
+    Tool Register
+  </div>
+      <form
+        action="{% url 'devtools:tool_create' %}"
+        method="post"
+        enctype="multipart/form-data"
+      >
+      {%csrf_token%}
+      {{form.as_p}}
+      <button class="btn btn-success">등록하기</button>
+    </form>
+</div>
+{%endblock%}

@@ -1,0 +1,91 @@
+{% extends 'index.html' %}
+
+{% load static %}
+<link rel="stylesheet" href="{%static 'posts/css/style.css'%}">
+
+{% load static %}
+{%block head%}
+  <title>아이디어 리스트</title>
+{% endblock %}
+{%block content%}
+
+  {%comment%}
+  <p><a href="{% url 'posts:order' 'interest' %}">찜하기 순</a></p>
+  {%endcomment%}
+  <div id="nav__order">
+    <p><a href="{% url 'posts:order' 'title' %}">이름 순</a></p>
+    <p><a href="{% url 'posts:order' 'created' %}">등록 순</a></p>
+    <p><a href="{% url 'posts:order' 'latest' %}">최신 순</a></p>
+  </div>
+
+  <div class="content-wrapper">
+    <div id = "content__title">
+      <div>Idea List</div>
+      <div>나의 아이디어를 잊지 말고 기록해보세요</div>
+    </div>
+    <!-- 글 목록 -->
+    {% for post in posts %}
+    <div class="item">
+      <button id="{{ post.pk }}" class="mark-btn">
+        {% if post.marked %}
+        ★
+        {% else %}
+        ☆
+        {% endif %}
+      </button>
+      {% if post.photo.url != null and post.photo.url != '' %}
+        <img src="{{post.photo.url}}" alt="대체텍스트">
+      {% else %}
+        <img src="{% static 'posts/image/no_img.png' %}" alt="">
+      {% endif %}
+      <div class="info">
+        <a href="{% url 'posts:detail' post.pk%}" class="title">
+          {{post.title}}
+        </a>
+        <p>
+          {{post.tools}}
+        </p>
+        <div id="interests">
+          <form action="{% url 'posts:update_interest' post.pk %}" method="POST" class="interest-form">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="increase">
+            <button type="submit" class="interest-btn">+</button>
+          </form>
+          <p>
+            {{post.interest}}
+          </p>
+          <form action="{% url 'posts:update_interest' post.pk %}" method="POST" class="interest-form">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="decrease">
+            <button type="submit" class="interest-btn">-</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  <script>
+  document.querySelectorAll('.mark-btn').forEach(button => {
+    button.addEventListener('click', function() {
+      const postId = this.dataset.postId;
+      const isMarked = this.dataset.marked === 'true';
+      fetch(`/posts/${postId}/mark/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': '{{ csrf_token }}'
+        },
+        body: JSON.stringify({ marked: !isMarked })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          this.dataset.marked = data.marked ? 'true' : 'false';
+          this.textContent = data.marked ? '★' : '☆';
+        }
+      })
+      .catch(error => console.error('Error:', error));
+    });
+  });
+  </script>
+  </div>
+{%endblock%}

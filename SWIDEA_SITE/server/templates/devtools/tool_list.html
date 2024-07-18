@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+
+{% load static %}
+<link rel="stylesheet" href="{%static 'posts/css/style.css'%}">
+{%block head%}
+  <title>개발도구 리스트</title>
+{% endblock %}
+{%block content%}
+  <div id="tool-wrapper">
+    <div id="tool__title">DevTool List</div>
+    <!-- 글 목록 -->
+    {% for tool in tools %}
+    <div id="tool__contrainer">
+      <a href="{% url 'devtools:tool_detail' pk=tool.pk %}">
+        <p>{{tool.title}}</p>
+      </a>
+      <p id="kind">{{tool.kinds}}</p>
+      <p id="tool__content">{{tool.content}}</p>
+    </div>
+  {% endfor %}
+  </div>
+{%endblock%}

@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+
+{% load static %}
+<link rel="stylesheet" href="{%static 'posts/css/style.css'%}">
+{% block head %}
+  <title>개발도구 디테일</title>
+{% endblock %}
+{% block content %}
+  <h1>{{ tool.title }}</h1>
+  <p>{{ tool.content }}</p>
+
+  <hr />
+
+  {% if tool.post_set.all %}
+    <ul>
+      {% for post in tool.post_set.all %}
+        <li><a href="{% url 'posts:detail' pk=post.pk %}">{{ post.title }}</a> - {{ post.content }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  <form action="{% url 'devtools:tool_update' tool.pk %}" method="GET" style="display: inline;">
+    <button type="submit" class="btn btn-primary">수정하기</button>
+  </form>
+  <form action="{% url 'devtools:tool_delete' tool.pk %}" method="POST" style="display: inline;">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">삭제하기</button>
+  </form>
+  <a href="{% url 'devtools:tool_list' %}" class="btn btn-primary">목록으로</a>
+{% endblock %}
