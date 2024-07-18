@@ -10,7 +10,7 @@
   <p>{{ tool.content }}</p>
 
   <hr />
-
+  <div>이 도구를 활용한 프로젝트</div>
   {% if tool.post_set.all %}
     <ul>
       {% for post in tool.post_set.all %}
@@ -19,12 +19,12 @@
     </ul>
   {% endif %}
 
-  <form action="{% url 'devtools:tool_update' tool.pk %}" method="GET" style="display: inline;">
+  <form action="{% url 'devtools:tool_update' tool.pk %}" method="GET" id = "tool_btn"style="display: inline;">
     <button type="submit" class="btn btn-primary">수정하기</button>
   </form>
-  <form action="{% url 'devtools:tool_delete' tool.pk %}" method="POST" style="display: inline;">
+  <form action="{% url 'devtools:tool_delete' tool.pk %}" method="POST" id = "tool_btn" style="display: inline;">
     {% csrf_token %}
     <button type="submit" class="btn btn-danger">삭제하기</button>
   </form>
-  <a href="{% url 'devtools:tool_list' %}" class="btn btn-primary">목록으로</a>
+  <a href="{% url 'devtools:tool_list' %}" id = "tool_btn">목록으로</a>
 {% endblock %}
