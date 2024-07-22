@@ -1,0 +1,105 @@
+#main__contrainer {
+    display: flex;
+    height: 80%;
+}
+form {
+    max-width: 600px;
+    margin: 0;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+button {
+    border: none;
+    padding: 5px 10px;
+}
+
+.post__container img {
+    width: 200px;
+    height: 150px;
+}
+
+.post__container .card-title {
+    width: 200px;
+}
+
+.post__container .card-text {
+    width: 200px;
+    height: 50px;
+    overflow-y: auto;
+}
+
+
+.post__container {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.content__container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    cursor: pointer;
+
+}
+.post__img {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+    overflow:hidden;
+    
+}
+.post__img > img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.post__like {
+    position: absolute;
+    top: 60%;
+    right: 0;
+    background-color: transparent;
+    background: none;
+}
+.comment__container {
+    display: flex;
+}
+
+.comments-list {
+    position: relative;
+    right: 55px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+}
+
+#comment-button {
+    width: 50px;
+    padding-left: 10px;
+}
+
+#prev-button, #next-button, #start-button, #stop-button {
+    background-color: transparent;
+    color: lightgray;
+    font-weight: 800;
+    font-size: 1.5rem;
+
+}

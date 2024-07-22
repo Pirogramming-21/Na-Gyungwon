@@ -1,0 +1,14 @@
+{%block content%}
+{% if user.is_authenticated %}
+<div><a href='{% url "users:logout" %}'>𝓁𝑜𝑔𝑜𝓊𝓉</a></div>
+<div id="title"><a href="{% url 'main:post_list' %}">𝓟𝓲𝓻𝓸𝓼𝓽𝓪𝓰𝓻𝓪𝓶</a></div>
+<div><a href='{% url "main:post_new" %}'>𝓅𝑜𝓈𝓉</a></div>
+
+{% else %}
+<div id="nav_menu">
+    <div><a href='{% url "users:login" %}'>𝓁𝑜𝑔𝒾𝓃</a></div>
+    <div id="title"><a href="{% url 'main:post_list' %}">𝓟𝓲𝓻𝓸𝓼𝓽𝓪𝓰𝓻𝓪𝓶</a></div>
+    <div><a href='{% url "users:signup" %}'>𝒿𝑜𝒾𝓃</a></div>
+</div>
+{% endif %}
+{% endblock %}

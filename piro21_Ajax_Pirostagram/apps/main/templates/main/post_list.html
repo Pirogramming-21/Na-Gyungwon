@@ -1,0 +1,146 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{%endblock%}
+{% block content %}
+<button id="start-button" onclick="startPost()">🔁</button>
+<button id="stop-button" onclick="stopPost()">⏸️</button>
+<div id="main__contrainer">
+    <button id="prev-button" onclick="nextPost()">&#9664;</button>
+    <div class="main__container">
+            {% if user.is_authenticated %}
+            {% for post in posts %}
+                <div class="card post__container post-id-{{ post.id }}" style="display: none;">
+                    <div class="card-body">
+                        <div class="content__container">
+                            {% if post.image %}
+                            <div class="post__img">
+                                <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                            </div>
+                            {% endif %}
+                            <div class="card-title">{{ post.title }}</div>
+                            <div class="card-text">{{ post.content }}</div>
+                            <div class="post__like" onclick="onClickLike({{ post.id }}, 'like')">👍 {{ post.like }}</div>
+                            <div class="comment__container">
+                                <input id="comment-content" type="text" size="40" placeholder="댓글달기..." />
+                                <button id="comment-button" type="button" onclick="onClickCom({{ post.id }})">게시</button>
+                            </div>
+                        </div>
+    
+    
+                        <div class="comments-list">
+                            {% if post.comments.all %}
+                                <ul>
+                                    {% for comment in post.comments.all %}
+                                        <li class="comment-id-{{ comment.id }}">
+                                            <strong>{{ comment.user.username }}</strong>
+                                            <p>{{ comment.content }}
+                                                {% if user == comment.user %}
+                                                    <a href="{% url 'main:delete_comment' post.id comment.id %}" onclick="return confirm('정말 삭제하시겠습니까?');">
+                                                        [삭제]
+                                                    </a>
+                                                {% endif %}
+                                            </p>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                <p>댓글이 없습니다.</p>
+                            {% endif %}
+                        </div>
+    
+                    </div>
+                </div>
+            {% endfor %}
+            {% endif %}
+    
+        </div>
+        <button id="next-button" onclick="nextPost()">&#9654;</button>
+
+</div>
+{% endblock %}
+
+
+{% block extra %}
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    const csrfToken = '{{ csrf_token }}';
+    axios.defaults.headers.common['X-CSRFToken'] = csrfToken;
+
+
+    const posts = document.querySelectorAll('.post__container');
+    let curIdx = 0;
+    let interval;
+
+const curPost = (index) => {
+    posts.forEach((post, i) => {
+        post.style.display = i === index ? 'block' : 'none';
+    });
+};
+
+const nextPost = () => {
+    curIdx = (curIdx + 1) % posts.length;
+    curPost(curIdx);
+};
+
+const prevPost = () => {
+    curIdx = (curIdx - 1 + posts.length) % posts.length;
+    curPost(curIdx);
+};
+
+const stopPost = () => {
+    clearInterval(interval);
+};
+
+const startPost = () => {
+    if (!interval) {
+        interval = setInterval(nextPost, 5000);
+    }
+};
+    curPost(curIdx);
+    startPost();
+    const onClickLike = async (id, type) => {
+        const url = "/like_ajax/";
+        const { data } = await axios.post(url, { id, type });
+        likeHandleResponse(data.id, data.type);
+    }
+
+    const likeHandleResponse = (id, type) => {
+        const element = document.querySelector(`.post-id-${id} .post__${type}`);
+        const originHTML = element.innerHTML;
+        const [buttonType, num] = originHTML.split(" ");
+        const count = Number(num) || 0;
+
+        element.innerHTML = `${buttonType} ${count + 1}`;
+    }
+    
+
+    function onClickCom(postId) {
+        const content = document.getElementById('comment-content').value;
+
+        fetch(`/post/${postId}/comment/new/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'X-CSRFToken': '{{ csrf_token }}'
+            },
+            body: new URLSearchParams({
+                'content': content
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Comment added successfully!');
+                // Optionally, update the UI to show the new comment
+            } else {
+                alert('Failed to add comment: ' + data.error);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+</script>
+{% endblock %}
